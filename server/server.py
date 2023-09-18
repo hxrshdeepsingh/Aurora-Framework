@@ -3,11 +3,11 @@ import handler
 
 try:
     host = input("host :")
-    port = input("port :")
+    port = int(input("port :"))
     soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     soc.bind((host, port))
     soc.listen()
-    print("Listening for incoming connections...")
+    print(handler.GREEN,"Listening...",handler.RESET)
 except Exception as e:
     print("Error: ", str(e))
 
@@ -26,5 +26,5 @@ while True:
                 handler.storage(res)
     except Exception as e:
         conn.close()
-        print("Client disconnected",addr)
+        print(handler.RED,"Client disconnected",addr,handler.RESET)
         print("Waiting for clients...")
