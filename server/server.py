@@ -1,10 +1,9 @@
 import socket
 import handler
 
-host = "127.0.0.1"
-port = 3333
-
 try:
+    host = input("host :")
+    port = input("port :")
     soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     soc.bind((host, port))
     soc.listen()
