@@ -36,3 +36,4 @@ Payload can:
 ## Requirements
 
 - `python`
+- `linux | Windows`
