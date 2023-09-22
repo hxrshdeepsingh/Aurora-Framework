@@ -9,7 +9,7 @@ def main():
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         soc.bind((x, y))
         soc.listen()
-        print(handler.GREEN + "[*] Handler listening..." + handler.RESET)
+        print(handler.GREEN + "[*] Handler listening ..." + handler.RESET)
 
         while True:
             conn, addr = soc.accept()
