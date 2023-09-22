@@ -27,16 +27,16 @@ def main():
                         else:
                             handler.storage(res)
 
-                    except Exception as e:
+                    except Exception:
                         conn.close()
                         print(handler.RED + "[!] Client disconnected {addr}" + handler.RESET)
                         print(handler.GREEN + "[*] Waiting for clients..." + handler.RESET)
                         break
 
-            except Exception as e:
+            except Exception:
                 print(handler.RED + "[*] Error accepting connection" + handler.RESET)
 
-    except Exception as e:
+    except Exception:
         print(handler.RED + f"[*] Unexpected error" + handler.RESET)
 
 if __name__ == "__main__":
