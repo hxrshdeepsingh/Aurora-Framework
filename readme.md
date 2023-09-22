@@ -13,4 +13,4 @@ Server is structured with the following components:
   - `server.py`  :  Socket server initialization.
   - `handler.py` :  Functions for server validation and operations.
 
-- `storage/` `dir` : For storing files.
+- `storage/` : For storing files.
