@@ -1,7 +1,6 @@
 import socket
 import handler
 
-
 def main():
     x = str(input("[*] Listener IP   :   "))
     y = int(input("[*] Listener PORT :   "))
@@ -29,15 +28,12 @@ def main():
 
                 except Exception:
                     conn.close()
-                    print(
-                        handler.RED + "[!] Client disconnected {addr}" + handler.RESET
-                    )
+                    print(handler.RED + "[!] Client disconnected {addr}" + handler.RESET)
                     print(handler.GREEN + "[*] Waiting for clients..." + handler.RESET)
                     break
 
     except Exception:
         print(handler.RED + f"[*] Unexpected error" + handler.RESET)
-
 
 if __name__ == "__main__":
     main()
