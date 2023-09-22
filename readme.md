@@ -6,11 +6,11 @@ This Python project is centered around a straightforward socket server that fulf
 
 This Python project is structured with the following components:
 
-- `server/` directory:
-  - `server.py`: Socket server initialization.
-  - `handler.py`: Functions for server validation and operations.
+- `server/`
+  - `server.py`  :  Socket server initialization.
+  - `handler.py` :  Functions for server validation and operations.
 
-- `storage/` directory: For storing files.
+- `storage/` directory : For storing files.
 
 <!-- Socket Python Server
 
