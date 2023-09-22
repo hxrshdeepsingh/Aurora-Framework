@@ -7,12 +7,9 @@ Payload can:
 - Root shell ( `required Administrator permission`)
 - System information
 - Execute commands on target machine
-- Upload/Download any type of files from remote host
+- Upload/Download any type of files
 - Get all processes running in a system
 - Kill process by name, id etc...
-- Create new user account
-- Delete existing users accounts
-- Change password for an existing user account
 - Enable/Disable windows services
 - Start/Stop windows service
 
@@ -25,3 +22,14 @@ Payload can:
 - `storage/` : For storing files.
 
 ## Payload structure
+
+- `payload.py`
+  - `shell()`: Establishes a remote shell session.
+  - `upload()`: Sends files to the target machine.
+  - `download()`: Retrieves files from the target.
+  - `system()`: Fetches system information.
+  - `command()`: Executes custom commands.
+  - `root()`: Runs commands with elevated privileges.
+  - `process()`: Lists running processes.
+  - `windows_service()`: Manages Windows services.
+  - `kill()`: Terminates processes by name or ID.
