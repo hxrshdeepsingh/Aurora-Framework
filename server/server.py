@@ -23,14 +23,14 @@ def main():
                         res = conn.recv(8192).decode()
 
                         if res == "0":
-                            print(handler.RED + "[!] Invalid command!" + handler.RESET)
+                            print(handler.RED + "[!] Invalid command !" + handler.RESET)
                         else:
                             handler.storage(res)
 
                     except Exception as e:
                         conn.close()
-                        print("[!] Client disconnected {addr}")
-                        print("[*] Waiting for clients...")
+                        print(handler.RED + "[!] Client disconnected {addr}" + handler.RESET)
+                        print(handler.GREEN + "[*] Waiting for clients..." + handler.RESET)
                         break
 
             except Exception as e:
