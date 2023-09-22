@@ -1,6 +1,6 @@
 # Aurora Framework
 
-Aurora is a backdoor framework for creating windows payload. It consists of a control server and client payloads, and uses sockets to establish connections.
+Aurora is a backdoor framework for creating windows payload. It consists of a control server and payloads, and uses sockets to establish connections.
 
 ## Features
 Payload can:
@@ -16,17 +16,12 @@ Payload can:
 - Enable/Disable windows services
 - Start/Stop windows service
 
-# Server
-
-A socket server that fulfills three primary functions:
-- Functioning as a control server.
-- Accepting target connections.
-- Receiving data from these targets `.txt files` .
-
-## Server Structure
+## Server structure
 
 - `server/`
   - `server.py`  :  Socket server initialization.
   - `handler.py` :  Functions for server validation and operations.
 
 - `storage/` : For storing files.
+
+## Payload structure
