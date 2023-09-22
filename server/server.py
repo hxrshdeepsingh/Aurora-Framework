@@ -9,7 +9,7 @@ def main():
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         soc.bind((x, y))
         soc.listen()
-        print(handler.GREEN + "[*] Handler Listening..." + handler.RESET)
+        print(handler.GREEN + "[*] Handler listening..." + handler.RESET)
  
         while True:
             try:
@@ -23,7 +23,7 @@ def main():
                         res = conn.recv(8192).decode()
 
                         if res == "0":
-                            print(handler.RED + "[!] Invalid Command!" + handler.RESET)
+                            print(handler.RED + "[!] Invalid command!" + handler.RESET)
                         else:
                             handler.storage(res)
 
@@ -34,10 +34,10 @@ def main():
                         break
 
             except Exception as e:
-                print(handler.RED + "Error accepting connection: {str(e)}" + handler.RESET)
+                print(handler.RED + "[*] Error accepting connection" + handler.RESET)
 
     except Exception as e:
-        print(handler.RED + f"Unexpected error: {str(e)}" + handler.RESET)
+        print(handler.RED + f"[*] Unexpected error" + handler.RESET)
 
 if __name__ == "__main__":
     main()
