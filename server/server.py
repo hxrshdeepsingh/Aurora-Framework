@@ -1,30 +1,43 @@
 import socket
 import handler
 
-try:
-    host = input("host :")
-    port = int(input("port :"))
-    soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    soc.bind((host, port))
-    soc.listen()
-    print(handler.GREEN,"Listening...",handler.RESET)
-except Exception as e:
-    print("Error: ", str(e))
+def main():
+    x = str(input("[*] Listener IP   :   "))
+    y = int(input("[*] Listener PORT :   "))
 
-while True:
     try:
-        conn, addr = soc.accept()
-        print("Connected to client:", addr)
+        soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        soc.bind((x, y))
+        soc.listen()
+        print(handler.GREEN + "[*] Handler Listening..." + handler.RESET)
+ 
         while True:
-            cmd = input(">>")
-            conn.send(cmd.encode())
-            res = conn.recv(8192).decode()
-            if res == "0":
-                print("invalid command!")
-                continue
-            else:
-                handler.storage(res)
+            try:
+                conn, addr = soc.accept()
+                print(handler.GREEN + "[*] Connected to client:", addr + handler.RESET)
+
+                while True:
+                    try:
+                        cmd = input(">> ")
+                        conn.send(cmd.encode())
+                        res = conn.recv(8192).decode()
+
+                        if res == "0":
+                            print(handler.RED + "[!] Invalid Command!" + handler.RESET)
+                        else:
+                            handler.storage(res)
+
+                    except Exception as e:
+                        conn.close()
+                        print("[!] Client disconnected {addr}")
+                        print("[*] Waiting for clients...")
+                        break
+
+            except Exception as e:
+                print(handler.RED + "Error accepting connection: {str(e)}" + handler.RESET)
+
     except Exception as e:
-        conn.close()
-        print(handler.RED,"Client disconnected",addr,handler.RESET)
-        print("Waiting for clients...")
+        print(handler.RED + f"Unexpected error: {str(e)}" + handler.RESET)
+
+if __name__ == "__main__":
+    main()
