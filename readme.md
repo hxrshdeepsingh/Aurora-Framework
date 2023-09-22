@@ -1,6 +1,6 @@
 # Aurora Framework
 
-Aurora is a backdoor framework for creating Android payloads. It consists of a control server and client payloads, and uses sockets to establish connections.
+Aurora is a backdoor framework for creating windows payload. It consists of a control server and client payloads, and uses sockets to establish connections.
 
 ## Features
 Payload can:
