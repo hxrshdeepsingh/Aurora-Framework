@@ -18,7 +18,6 @@ Payload can:
 - `server/`
   - `server.py`  :  Socket server initialization.
   - `handler.py` :  Functions for server validation and operations.
-
 - `storage/` : For storing files.
 
 ## Payload structure
@@ -31,5 +30,9 @@ Payload can:
   - `command()`: Executes custom commands.
   - `root()`: Runs commands with elevated privileges.
   - `process()`: Lists running processes.
-  - `windows_service()`: Manages Windows services.
+  - `service()`: Manages Windows services.
   - `kill()`: Terminates processes by name or ID.
+
+## Requirements
+
+- `python`
