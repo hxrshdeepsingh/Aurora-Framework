@@ -1,4 +1,4 @@
-# Handler server
+# Server
 
 A socket server that fulfills three primary functions:
 - Functioning as a control server.
@@ -6,8 +6,6 @@ A socket server that fulfills three primary functions:
 - Receiving data from these targets `.txt files` .
 
 ## Server Structure
-
-Server is structured with the following components:
 
 - `server/`
   - `server.py`  :  Socket server initialization.
