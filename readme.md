@@ -29,8 +29,8 @@ Payload can:
   - `system()`: Fetches system information.
   - `command()`: Executes custom commands.
   - `root()`: Runs commands with elevated privileges.
-  - `process()`: Lists running processes.
-  - `service()`: Manages Windows services.
+  - `process_info()`: Lists running processes.
+  - `service_info()`: Manages Windows services.
   - `kill()`: Terminates processes by name or ID.
 
 ## Requirements
