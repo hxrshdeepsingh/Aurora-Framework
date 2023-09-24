@@ -33,8 +33,6 @@ while True:
     elif r == 'process':
         while True:
             data = s.recv(1024).decode()
-            if data == 'PROCESS_INFO_END':
-                break
             print(data)
        
     else:
