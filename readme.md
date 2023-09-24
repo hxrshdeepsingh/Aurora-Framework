@@ -18,7 +18,6 @@ Payload can:
 - `server/`
   - `server.py`  :  Socket server initialization.
   - `handler.py` :  Functions for server validation and operations.
-- `storage/` : For storing files.
 
 ## Payload structure
 
