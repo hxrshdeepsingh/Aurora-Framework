@@ -21,7 +21,7 @@ def process_info():
         NM = process.info['name']
         data = f"Process ID: {ID}, Process Name: {NM}"
         s.send(data.encode())
-        break
+    s.send(b'PROCESS_INFO_END')
 
 while True:
     r = s.recv(1024).decode()
@@ -29,8 +29,14 @@ while True:
 
     if r == 'system':
         system_info()
+
     elif r == 'process':
-        process_info()
+        while True:
+            data = s.recv(1024).decode()
+            if data == 'PROCESS_INFO_END':
+                break
+            print(data)
+       
     else:
         y = "404"
         s.send(y.encode())

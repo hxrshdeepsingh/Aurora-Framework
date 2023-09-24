@@ -13,7 +13,7 @@ try:
 
     while True:
         conn, addr = soc.accept()
-        print(f"[*] Connected to client: {addr}")
+        print("[*] Connected to client: ",addr)
 
         while True:
             try:
@@ -24,7 +24,7 @@ try:
 
             except Exception:
                 conn.close()
-                print(f"[!] Client disconnected {addr}")
+                print("[!] Client disconnected ",addr)
                 print("[*] Waiting for clients...")
                 break
 
