@@ -31,6 +31,8 @@ Payload can:
   - `process_info()`: Lists running processes.
   - `service_info()`: Manages Windows services.
   - `kill()`: Terminates processes by name or ID.
+  - `shutdown()`: Shutdown the system.
+  - `restart()`: Restart the system.
 
 ## Requirements
 

