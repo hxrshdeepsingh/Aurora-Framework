@@ -15,13 +15,13 @@ Payload can:
 
 ## Server structure
 
-- `server/`
+- server/
   - `server.py`  :  Socket server initialization.
   - `handler.py` :  Functions for server validation and operations.
 
 ## Payload structure
 
-- `payload.py`
+- payload.py
   - `shell()`: Establishes a remote shell session.
   - `upload()`: Sends files to the target machine.
   - `download()`: Retrieves files from the target.
@@ -33,8 +33,9 @@ Payload can:
   - `kill()`: Terminates processes by name or ID.
   - `shutdown()`: Shutdown the system. (`required Administrator permission`)
   - `restart()`: Restart the system. (`required Administrator permission`)
+  - `audio()`: Records the audio.
 
-## Requirements
+## Requirements 
 
 - `python`
 - `linux | Windows`
