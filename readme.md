@@ -23,17 +23,9 @@ Payload can:
 
 - payload.py
   - `shell()`: Establishes a remote shell session.
-  - `upload()`: Sends files to the target machine.
-  - `download()`: Retrieves files from the target.
-  - `system()`: Fetches system information.
   - `command()`: Executes custom commands.
-  - `root()`: Runs commands with elevated privileges.
-  - `process()`: Lists running processes.
-  - `service()`: Manages Windows services.
-  - `kill()`: Terminates processes by name or ID.
-  - `shutdown()`: Shutdown the system. (`required Administrator permission`)
-  - `restart()`: Restart the system. (`required Administrator permission`)
   - `audio()`: Records the audio.
+  - `screenshot()`: Records the audio.
 
 ## Requirements 
 
