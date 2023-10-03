@@ -22,8 +22,7 @@ Payload can:
 ## Payload structure
 
 - payload.py
-  - `shell()`: Establishes a remote shell session.
-  - `command()`: Executes custom commands.
+  - `command()`: Executes system commands.
   - `audio()`: Records the audio.
   - `screenshot()`: Records the audio.
 
