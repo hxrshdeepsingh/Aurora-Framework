@@ -9,6 +9,7 @@ def handle_file():
     data = client.recv(99999)
     with open(name + "e", "wb") as file:
         file.write(data)
+    print(f"-- saved file as {name}")
 
 def commmands():
      while True:
