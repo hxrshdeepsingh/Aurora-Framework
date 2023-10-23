@@ -21,7 +21,7 @@ while True:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        sock.connect(("127.0.0.1", 3333))
+        sock.connect(("<HOST>", <PORT>))
 
         ''' FUNCTIONS '''
 

