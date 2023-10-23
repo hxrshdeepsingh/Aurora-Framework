@@ -14,8 +14,8 @@ file_buffer = 999999999
 
 
 @click.command()
-@click.option("--host", prompt="[+] Set HOST", help="Set host", type=str)
-@click.option("--port", prompt="[+] Set PORT", help="Set port", type=int)
+@click.option("--host", prompt="[+] Set HOST", help="set host", type=str)
+@click.option("--port", prompt="[+] Set PORT", help="set port", type=int)
 def main(host, port):
     try:
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
