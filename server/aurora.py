@@ -45,4 +45,5 @@ def main(choice):
             print(f"{red}Invalid choice! Please try again.{reset}")
             main()
 
-main()
+if __name__ == "__main__":
+    main()
