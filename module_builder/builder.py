@@ -13,7 +13,7 @@ green = "\033[32m"
 
 
 @click.command()
-@click.option("--name", prompt="[+] Set Name ", help="set name", type=str)
+@click.option("--name", prompt="[+] Set Name", help="set name", type=str)
 @click.option("--host", prompt="[+] Set HOST", help="set host", type=str)
 @click.option("--port", prompt="[+] Set PORT", help="set port", type=int)
 @click.option("--time", prompt="[+] Set Reconnection Time", help="set time", type=str)
