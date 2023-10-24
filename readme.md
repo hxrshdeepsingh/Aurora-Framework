@@ -1,6 +1,6 @@
 # Aurora Framework
 
-Aurora is a backdoor framework for creating windows payload. It consists of a control server and payloads, and uses sockets to establish connections.
+Aurora Framework lets you create backdoors for Windows. It has a control server and different payloads, and it comes with a bunch of cool features.
 
 ## Features
 Payload can:
