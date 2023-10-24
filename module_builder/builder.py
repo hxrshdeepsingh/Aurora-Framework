@@ -6,7 +6,7 @@ import subprocess
 
 # absolute path
 current_directory = os.getcwd()
-source_file_path = os.path.join(current_directory, 'module_builder', 'source_code.txt')
+source_file_path = os.path.join(current_directory,'module_builder','source_code.txt')
 print(source_file_path)
 
 # colors
@@ -23,8 +23,6 @@ green = "\033[32m"
 @click.option("--port", prompt="[+] Set PORT", help="set port", type=int)
 @click.option("--time", prompt="[+] Set Reconnection Time", help="set time", type=str)
 def main(name, host, port, time):
-
-    """ create a new payload file with the given name and set reconnection time """
 
     print(f"{green}[*] Generating Payload, Please Wait...{reset}")
     
