@@ -4,7 +4,7 @@ Aurora is a backdoor framework for creating windows payload. It consists of a co
 
 ## Features
 Payload can:
-- Root shell `required Administrator permission`
+- Root shell `Administrator permission required`
 - System information
 - Delete files & folder on the host machine. 
 - Execute commands on target machine.

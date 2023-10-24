@@ -5,7 +5,7 @@ import socket
 import pyautogui
 import subprocess
 
-# convert user reconnection_time into minute & int
+#convert user reconnection_time into minute & int
 reconnection_time = "<TIME>"
 int_time = int(reconnection_time)
 min_time = int_time * 60

@@ -4,7 +4,7 @@ import shutil
 import platform
 import subprocess
 
-# absolute path
+# absolute paths
 current_directory = os.getcwd()
 source_file_path = os.path.join(current_directory,'module_builder','source_code.txt')
 print(source_file_path)

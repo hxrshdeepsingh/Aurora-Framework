@@ -3,7 +3,7 @@ from utils import clear
 from module_server import server
 from module_builder import builder
 
-#clear screens
+#clear screen
 clear.screen()
 
 # colors
