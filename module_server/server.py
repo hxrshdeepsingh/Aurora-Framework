@@ -51,6 +51,6 @@ def main(host, port):
 def handle_file(client_socket):
     name = client_socket.recv(1024).decode()
     data = client_socket.recv(file_buffer)
-    with open(name + "e", "wb") as file:
+    with open(name, "wb") as file:
         file.write(data)
     print(f"{green}[+] Saved file as {name}{reset}")

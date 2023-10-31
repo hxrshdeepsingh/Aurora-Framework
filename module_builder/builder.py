@@ -12,7 +12,7 @@ green = "\033[32m"
 @click.option("--name", type=str ,prompt="[+] Set Name")
 @click.option("--host", type=str ,prompt="[+] Set Host")
 @click.option("--port", type=int ,prompt="[+] Set Port")
-@click.option("--time", type=str ,prompt="[+] Set Reconnection Time")
+@click.option("--time", type=int ,prompt="[+] Set Reconnection Time")
 def main(name, host, port, time):
 
     click.echo("[*] Generating payload, PLease wait...")
