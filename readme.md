@@ -22,7 +22,15 @@
 - Download files
 
 ## How to install
-``` git clone https://github.com/hxrshdeepsingh/Aurora-Framework ```
-``` cd Aurora-Framework ```
-``` pip install -r requirements.txt ```
-``` python aurora.py ```
+```
+git clone https://github.com/hxrshdeepsingh/Aurora-Framework
+```
+```
+cd Aurora-Framework
+```
+```
+pip install -r requirements.txt
+```
+```
+python aurora.py
+```
