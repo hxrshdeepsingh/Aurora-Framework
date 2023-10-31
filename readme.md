@@ -34,3 +34,6 @@ pip install -r requirements.txt
 ```
 python aurora.py
 ```
+
+## Disclaimer
+This tool is for educational and testing purposes only. Do not use its payloads on hosts without proper authorization. You are responsible for any consequences resulting from its use.
