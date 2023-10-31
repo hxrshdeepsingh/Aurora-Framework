@@ -1,10 +1,6 @@
 import click
-from utils import clear
 from module_server import server
 from module_builder import builder
-
-#clear screen
-clear.screen()
 
 # colors
 red = "\033[31m"
@@ -14,36 +10,40 @@ reset = "\033[0m"
 green = "\033[32m"
 
 # banner
-print(f"{green}================================================{reset}")
-print(f"{green}================================================{reset}")
-print(f"{green}================================================{reset}")
-print(f"{green}============== AURORA FRAMEWORK ===V.1=========={reset}")
-print(f"{green}================================================{reset}")
-print(f"{green}================================================{reset}")
-print(f"{green}================================================{reset}\n")
+def print_banner():
+    print(f"{green}================================================{reset}")
+    print(f"{green}============== AURORA FRAMEWORK ===V.1=========={reset}")
+    print(f"{green}================================================{reset}\n")
 
-# choices
-print(f"{blue}[1] Start Listener for payload{reset}")
-print(f"{blue}[2] Generate Payload for windows{reset}")
+def print_menu():
+    print(f"{blue}[1] Start Listener for payload{reset}")
+    print(f"{blue}[2] Generate Payload for windows{reset}")
+    print(f"{blue}[3] Exit{reset}")
 
 @click.command()
-@click.option("--choice", prompt="[+] Choose an option (1/2)", help="Choose option 1 or 2", type=int)
-def main(choice):
-    match choice:
+def main():
+    while True:
+        click.clear()
+        print_banner()
+        print_menu()
 
-        case 1:
-            clear.screen()
-            server.main()
-            clear.screen()
+        choice = click.prompt("[+] Choose an option (1/3)", type=int)
 
-        case 2:
-            clear.screen()
-            builder.main()
-            clear.screen()
-
-        case _:
-            print(f"{red}Invalid choice! Please try again.{reset}")
-            main()
+        match choice:
+            case 1:
+                click.clear()
+                server.main()
+                click.clear()
+            case 2:
+                click.clear()
+                builder.main()
+                click.clear()
+            case 3:
+                click.clear()
+                break
+                
+            case _:
+                print(f"{red}Invalid choice! try again.{reset}")
 
 if __name__ == "__main__":
     main()
