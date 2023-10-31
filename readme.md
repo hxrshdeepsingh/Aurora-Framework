@@ -29,6 +29,4 @@ pip install -r requirements.txt
 python aurora.py
 ```
 
-## Requirements 
-- `python`
-- `linux | Windows`
+
