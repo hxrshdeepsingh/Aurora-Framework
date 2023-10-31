@@ -4,14 +4,7 @@ import shutil
 import platform
 import subprocess
 
-# absolute paths
-current_directory = os.getcwd()
-source_code = os.path.join(current_directory,'module_builder','source_code.txt')
-
 # colors
-red = "\033[31m"
-gray = "\033[90m"
-blue = "\033[34m"
 reset = "\033[0m"
 green = "\033[32m"
 
