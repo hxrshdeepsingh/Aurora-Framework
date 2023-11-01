@@ -29,8 +29,8 @@ def main(name, host, port, time):
 
     with open('source/' + file_name, 'r') as file:
         code = file.read()
-        code = code.replace('<TIME>', time)
-        code = code.replace('<HOST>', host)
+        code = code.replace('<TIME>', str(time))
+        code = code.replace('<HOST>', str(host))
         code = code.replace('<PORT>', str(port))
         file.close()
 

