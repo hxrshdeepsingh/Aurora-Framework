@@ -32,7 +32,23 @@ cd Aurora-Framework
 pip install -r requirements.txt
 ```
 ```
-python aurora.py
+python aurora.py --help
+```  
+
+## Setup Server
+```
+python aurora.py server --help
+```
+```
+python aurora.py server --host <HOST> --port <PORT>
+```
+
+## Build Payload
+```
+python aurora.py payload --help
+```
+```
+python aurora.py payload --name <NAME> --host <HOST> --port <PORT> --time <RECONNECTION TIME>
 ```
 
 ## Disclaimer

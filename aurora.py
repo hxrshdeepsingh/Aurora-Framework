@@ -1,49 +1,26 @@
 import click
-from module_server import server
-from module_builder import builder
+from engine import sx
+from engine import sp
 
-# colors
-red = "\033[31m"
-gray = "\033[90m"
-blue = "\033[34m"
-reset = "\033[0m"
-green = "\033[32m"
+@click.group(help="⚡ Aurora-Framework @v0.1.2")
+def aurora():
+    pass
 
-# banner
-def print_banner():
-    print(f"{green}================================================{reset}")
-    print(f"{green}============== AURORA FRAMEWORK ===V.1=========={reset}")
-    print(f"{green}================================================{reset}\n")
+@aurora.command()
+@click.option('--host', required=True, type=str, help='Host for the server.')
+@click.option('--port', required=True, type=int, help='Port for the server.')
+def server(host, port):
+    click.clear()
+    sx.Main(host, port)
 
-def print_menu():
-    print(f"{blue}[1] Start Listener for payload{reset}")
-    print(f"{blue}[2] Generate Payload for windows{reset}")
-    print(f"{blue}[3] Exit{reset}")
+@aurora.command()
+@click.option('--name', required=True, type=str, help='Name for the payload.')
+@click.option('--host', required=True, type=str, help='Host for the payload.')
+@click.option('--port', required=True, type=int, help='Port for the payload.')
+@click.option('--time', required=True, type=int, help='Time for the payload.')
+def payload(name, host, port, time):
+    click.clear()
+    sp.Main(name, host, port, time)
 
-@click.command()
-def main():
-    while True:
-        click.clear()
-        print_banner()
-        print_menu()
-
-        choice = click.prompt("[+] Choose an option (1/3)", type=int)
-
-        match choice:
-            case 1:
-                click.clear()
-                server.main()
-                click.clear()
-            case 2:
-                click.clear()
-                builder.main()
-                click.clear()
-            case 3:
-                click.clear()
-                break
-                
-            case _:
-                print(f"{red}Invalid choice! try again.{reset}")
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    aurora()
