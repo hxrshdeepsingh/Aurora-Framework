@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/Maintained%3F-Yes-96c40f">
 
 ## Purpose
-⚡This tool is a backdoor generator for Windows systems that uses sockets to establish a connection and is highly capable of bypassing antivirus software.It has a control server and a variety of payloads, and comes with a number of useful features.
+This tool is a backdoor generator for Windows systems that uses sockets to establish a connection and is highly capable of bypassing antivirus software.It has a control server and a variety of payloads, and comes with a number of useful features.
 
 ## Features
 - Root shell `Administrator permission required`
