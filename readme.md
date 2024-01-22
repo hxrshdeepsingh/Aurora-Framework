@@ -1,38 +1,27 @@
-# Aurora Framework
+# Deluminator
 
-[![Python](https://img.shields.io/badge/Python-%E2%89%A5%203.6-yellow.svg)](https://www.python.org/) 
 [![License](https://img.shields.io/badge/License-BSD-red.svg)](https://github.com/t3l3machus/hoaxshell/blob/main/LICENSE.md)
 <img src="https://img.shields.io/badge/Maintained%3F-Yes-96c40f">
 
 ## Purpose
-This tool is a backdoor generator for Windows systems that uses sockets to establish a connection and is highly capable of bypassing antivirus software.It has a control server and a variety of payloads, and comes with a number of useful features.
+This package is a backdoor generator for Windows systems that uses sockets to establish a connection and is highly capable of bypassing antivirus software.It has a control server and comes with a number of useful features.
 
 ## Features
-- Root shell `Administrator permission required`
+- Root shell `Coming soon`
 - System information
 - Delete files & folder on the host machine. 
-- Execute commands on target machine.
-- Upload/Download any type of files.
+- Execute commands on target machine. 
+- Upload/Download any type of files. `Coming soon`
 - Get all processes running in a system.
 - Kill process by name, id etc...
 - Enable/Disable windows services.
 - Start/Stop windows service.
 - Start/Restart windows system.
-- Screenshot
-- Download files
+- Screenshot `Coming soon`
 
 ## How to install
 ```
-git clone https://github.com/hxrshdeepsingh/Aurora-Framework
-```
-```
-cd Aurora-Framework
-```
-```
-pip install -r requirements.txt
-```
-```
-python aurora.py --help
+pip install deluminator
 ```  
 
 ## Setup Server
